@@ -12,10 +12,11 @@
     <div id="aplayer"></div>
     <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
     <script>
-        fetch("list.js?2023-09-08").then((response) => response.json()).then((resp) => {
+        fetch("list.js?2023-09-08-0001").then((response) => response.json()).then((resp) => {
             const ap = new APlayer({
                 container: document.getElementById('aplayer'),
-                audio: resp
+                audio: resp,
+                listMaxHeight: 1,
             });
         })
 

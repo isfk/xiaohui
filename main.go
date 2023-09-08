@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"net/url"
 	"os"
 )
 
@@ -21,7 +22,7 @@ func main() {
 		files = append(files, &audio{
 			Artist: d.Name()[0:8],
 			Name:   d.Name()[9:len(d.Name())],
-			Url:    "https://cdn.jsdelivr.net/gh/isfk/xiaohui/" + d.Name(),
+			Url:    "https://cdn.jsdelivr.net/gh/isfk/xiaohui/" + url.QueryEscape(d.Name()),
 		})
 	}
 
