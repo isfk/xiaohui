@@ -27,6 +27,6 @@ func main() {
 
 	vd, _ := json.Marshal(files)
 	fmt.Println(string(vd))
-	_ = os.WriteFile("list.js", vd, 666)
+	_ = os.WriteFile("./docs/list.js", vd, 666)
 	fmt.Println("ok")
 }
