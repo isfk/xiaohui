@@ -22,7 +22,7 @@ func main() {
 		files = append(files, &audio{
 			Artist: d.Name()[0:8],
 			Name:   d.Name()[9:len(d.Name())],
-			Url:    "https://cdn.jsdelivr.net/gh/isfk/xiaohui@v0.0.4/mp3/" + url.QueryEscape(d.Name()),
+			Url:    "https://cdn.jsdelivr.net/gh/isfk/xiaohui@v0.0.5/mp3/" + url.QueryEscape(d.Name()),
 		})
 	}
 
