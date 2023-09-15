@@ -12,7 +12,8 @@
     <div id="aplayer"></div>
     <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
     <script>
-        fetch("https://cdn.jsdelivr.net/gh/isfk/xiaohui@v0.0.7/docs/list.js").then((response) => response.json()).then((resp) => {
+        var date = (new Date()).getTime();
+        fetch("https://raw.githubusercontent.com/isfk/xiaohui/main/docs/list.js?t=" + date).then((response) => response.json()).then((resp) => {
             const ap = new APlayer({
                 container: document.getElementById('aplayer'),
                 audio: resp,

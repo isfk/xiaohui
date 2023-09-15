@@ -1,0 +1,13 @@
+XiaoHui:
+  AudioPath: "./mp3"
+  DocsPath: "./docs"
+cron:
+  name: cron
+  log:
+    DefaultPath: "./logs/cron/default.log"
+    ErrorPath: "./logs/cron/errors.log"
+    MaxSize: 128
+  jobs:
+    - name: audio
+      spec: "0 10 14,8,12,16,20,0 * * *"
+      enabled: true

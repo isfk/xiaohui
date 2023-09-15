@@ -1,0 +1,6 @@
+.idea
+.DS_Store
+
+cmd/*.txt
+bin/
+logs/
