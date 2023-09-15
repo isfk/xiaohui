@@ -4,10 +4,6 @@
 2. `go run main.go`
 3. push
 
-```
-git tag -a v0.0.7 -m 'v0.0.7' -f; git push origin tag v0.0.7 -f
-```
-
 > xiaohui.service
 
 ```sh
@@ -23,4 +19,12 @@ Restart=always
 
 [Install]
 WantedBy=multi-user.target
+```
+
+```sh
+yt-dlp -f 'ba' -x --audio-format mp3 --playlist-start 1 --playlist-end 10 https://www.youtube.com/@eastsinglecom/videos -o '%(upload_date)s_%(title)s.mp3'
+```
+
+```sh
+git tag -a v0.0.7 -m 'v0.0.7' -f; git push origin tag v0.0.7 -f
 ```

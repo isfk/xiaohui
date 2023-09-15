@@ -27,9 +27,10 @@ func NewAudioJob(log *zap.Logger, conf *config.Conf) *AudioJob {
 func (d *AudioJob) Run() {
 	tag := fmt.Sprintf("v%d", time.Now().Unix())
 	d.log.Info("audio cron start", zap.String("time", time.Now().Format("15:04:05")))
+
 	// 下载
-	// yt-dlp -f 'ba' -x --audio-format mp3 https://www.youtube.com/@eastsinglecom/videos -o '%(upload_date)s_%(title)s.mp3'
-	cmd := exec.Command("yt-dlp", "-f", "bestaudio", "-x", "--audio-format", "mp3", "https://www.youtube.com/@eastsinglecom/videos", "-o", d.conf.Config.XiaoHui.AudioPath+"/%(upload_date)s_%(title)s.mp3")
+	// yt-dlp -f 'ba' -x --audio-format mp3 --playlist-start 1 --playlist-end 10 https://www.youtube.com/@eastsinglecom/videos -o '%(upload_date)s_%(title)s.mp3'
+	cmd := exec.Command("yt-dlp", "-f", "bestaudio", "-x", "--audio-format", "mp3", "--playlist-start", "1", "--playlist-end", "10", "https://www.youtube.com/@eastsinglecom/videos", "-o", d.conf.Config.XiaoHui.AudioPath+"/%(upload_date)s_%(title)s.mp3")
 
 	stdout, err := cmd.StdoutPipe()
 	if err != nil {
