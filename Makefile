@@ -20,7 +20,6 @@ build: clean
 
 .PHONY: build_linux
 build_linux:
-	cd cmd; rice embed-go
 	CGO_ENABLED=0 GOARCH=amd64 GOOS=linux go build -ldflags "-X main.Author=$(AUTHOR) -X main.Date=$(DATE) -X main.Version=$(VERSION) -X main.Branch=$(BRANCH)" -o ./bin .
 
 .PHONY: run

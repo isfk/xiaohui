@@ -20,6 +20,7 @@ type config struct {
 }
 
 type XiaoHuiConf struct {
+	Path      string `json:"path"`
 	AudioPath string `json:"audio_path"`
 	DocsPath  string `json:"docs_path"`
 }

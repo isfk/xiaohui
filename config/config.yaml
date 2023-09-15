@@ -1,13 +1,14 @@
 XiaoHui:
-  AudioPath: "./mp3"
-  DocsPath: "./docs"
+  Path: "/data/xiaohui"
+  AudioPath: "/data/xiaohui/mp3"
+  DocsPath: "/data/xiaohui/docs"
 cron:
   name: cron
   log:
-    DefaultPath: "./logs/cron/default.log"
-    ErrorPath: "./logs/cron/errors.log"
+    DefaultPath: "/data/xiaohui/logs/cron/default.log"
+    ErrorPath: "/data/xiaohui/logs/cron/errors.log"
     MaxSize: 128
   jobs:
     - name: audio
-      spec: "0 0 8,12,16,20,0 * * *"
+      spec: "0 59 8,12,16,17,20 * * *"
       enabled: true

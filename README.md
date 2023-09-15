@@ -8,7 +8,7 @@
 
 ```sh
 [Unit]
-Description=wutong
+Description=xiaohui
 After=network.target
 
 [Service]
@@ -16,6 +16,8 @@ ExecStart=/data/xiaohui/xiaohui cron
 ExecStop=/bin/pkill xiaohui
 RestartSec=3
 Restart=always
+User=root
+Group=root
 
 [Install]
 WantedBy=multi-user.target
