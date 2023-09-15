@@ -5,5 +5,5 @@
 3. push
 
 ```
-git tag -a v0.0.6 -m 'v0.0.6' -f; git push origin tag v0.0.6 -f
+git tag -a v0.0.7 -m 'v0.0.7' -f; git push origin tag v0.0.7 -f
 ```
