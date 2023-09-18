@@ -153,7 +153,11 @@ func (d *AudioJob) Run() {
 		return
 	}
 
-	_, err = r.CreateTag(tag, h.Hash(), &git.CreateTagOptions{})
+	_, err = r.CreateTag(tag, h.Hash(), &git.CreateTagOptions{Tagger: &object.Signature{
+		Name:  "isfk",
+		Email: "isfk@live.cn",
+		When:  time.Now(),
+	}, Message: tag})
 	if err != nil {
 		d.log.Sugar().Errorf("CreateTag err %v", err)
 		return

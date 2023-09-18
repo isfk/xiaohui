@@ -11,5 +11,5 @@ cron:
     MaxSize: 128
   jobs:
     - name: audio
-      spec: "0 13 8,9,12,16,20 * * *"
+      spec: "0 0 8,12,16,20 * * *"
       enabled: true
