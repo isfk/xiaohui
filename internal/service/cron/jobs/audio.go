@@ -6,6 +6,7 @@ import (
 	"net/url"
 	"os"
 	"os/exec"
+	"sort"
 	"time"
 
 	"github.com/go-git/go-git/v5"
@@ -91,6 +92,10 @@ func (d *AudioJob) Run() {
 			Url:    "https://cdn.jsdelivr.net/gh/isfk/xiaohui@" + tag + "/mp3/" + url.QueryEscape(f.Name()),
 		})
 	}
+
+	sort.Slice(files, func(i, j int) bool {
+		return files[i].Artist > files[j].Artist
+	})
 
 	vd, _ := json.Marshal(files)
 	_ = os.WriteFile(d.conf.Config.XiaoHui.DocsPath+"/list.js", vd, 0o666)
