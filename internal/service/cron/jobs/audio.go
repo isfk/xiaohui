@@ -112,11 +112,15 @@ func (d *AudioJob) Run() {
 		return
 	}
 
+	d.log.Info("NewPublicKeys ok.")
+
 	r, err := git.PlainOpen(d.conf.Config.XiaoHui.Path)
 	if err != nil {
 		d.log.Sugar().Errorf("PlainOpen err %v", err)
 		return
 	}
+
+	d.log.Info("PlainOpen ok.")
 
 	w, err := r.Worktree()
 	if err != nil {
@@ -124,11 +128,15 @@ func (d *AudioJob) Run() {
 		return
 	}
 
+	d.log.Info("Worktree ok.")
+
 	err = w.AddGlob("./")
 	if err != nil {
 		d.log.Sugar().Errorf("AddGlob err %v", err)
 		return
 	}
+
+	d.log.Info("AddGlob ok.")
 
 	_, err = w.Commit(tag, &git.CommitOptions{
 		Author: &object.Signature{
@@ -142,6 +150,8 @@ func (d *AudioJob) Run() {
 		return
 	}
 
+	d.log.Info("Commit ok.")
+
 	err = r.Push(&git.PushOptions{
 		RemoteName: "origin",
 		Progress:   os.Stdout,
@@ -152,11 +162,15 @@ func (d *AudioJob) Run() {
 		return
 	}
 
+	d.log.Info("Push ok.")
+
 	h, err := r.Head()
 	if err != nil {
 		d.log.Sugar().Errorf("Head err %v", err)
 		return
 	}
+
+	d.log.Info("Head ok.")
 
 	_, err = r.CreateTag(tag, h.Hash(), &git.CreateTagOptions{Tagger: &object.Signature{
 		Name:  "isfk",
@@ -168,17 +182,20 @@ func (d *AudioJob) Run() {
 		return
 	}
 
+	d.log.Info("CreateTag ok.")
+
 	err = r.Push(&git.PushOptions{
 		RemoteName: "origin",
 		Progress:   os.Stdout,
 		RefSpecs:   []gitConfig.RefSpec{gitConfig.RefSpec("refs/tags/*:refs/tags/*")},
 		Auth:       auth,
 	})
-
 	if err != nil {
 		d.log.Sugar().Errorf("Push Tag err %v", err)
 		return
 	}
+
+	d.log.Info("Push Tag ok.")
 
 	d.log.Info("audio cron done.")
 }

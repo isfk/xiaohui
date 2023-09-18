@@ -28,5 +28,5 @@ yt-dlp -f 'ba' -x --audio-format mp3 --playlist-start 1 --playlist-end 10 https:
 ```
 
 ```sh
-git tag -a v0.0.7 -m 'v0.0.7' -f; git push origin tag v0.0.7 -f
+git tag -a v0.0.8 -m 'v0.0.8' -f; git push origin tag v0.0.8 -f
 ```
