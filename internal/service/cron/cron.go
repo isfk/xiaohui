@@ -23,7 +23,7 @@ func NewCronJobs(c *cronV3.Cron, log *zap.Logger, conf *config.Conf, audio *jobs
 			if err != nil {
 				log.With(zap.Error(err)).Error("Job add fail", zap.String("name", job.Name), zap.Any("id", id))
 			} else {
-				log.Info("Job add success, id: %v", zap.String("name", job.Name), zap.Any("id", id))
+				log.Info("Job add success", zap.String("name", job.Name), zap.Any("id", id))
 			}
 		}
 	}

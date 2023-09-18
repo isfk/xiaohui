@@ -21,6 +21,7 @@ type config struct {
 
 type XiaoHuiConf struct {
 	Path      string `json:"path"`
+	SSHPath   string `json:"ssh_path"`
 	AudioPath string `json:"audio_path"`
 	DocsPath  string `json:"docs_path"`
 }
